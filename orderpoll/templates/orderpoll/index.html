@@ -1,0 +1,263 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load sort_template %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="{% static 'orderpoll/style.css' %}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+
+{% if user.first_name == 'Sam' %}
+<body style='background-color:white'>
+{% elif user.first_name == 'Hannan' %}
+<body  style='background-color:white'>
+{% else %}
+<body style='background-color:white'>
+{% endif %}
+
+<div class="container" style='width:100%; background-color:white'>
+  <a href='/' style='position:right;color:#6c96eb'><i data-feather="home"></i>Home</a>&nbsp;
+  <a href='/logout' style='align-self:right;color:#6c96eb'><i data-feather="log-out"></i>Logout</a>
+  <br>
+  <div class="row">
+
+    <div class='col'><h1 style='color:#3a3a3c'>Welcome, {{ user.first_name }}!</h1><br><a href="/getOrder"><h2 style="text-align:left;color:#6c96eb">Submit Order</h2></a>
+    <a href="/history" style='color:#6c96eb'>View Order History</a><br>
+
+     {% if user.first_name in managers %}
+     <br><h3 style='color:#3a3a3c'>Lab Jobs</h3>
+     <form method="post">
+         {% csrf_token %}
+         {{ LJFset.management_form }}
+         {% for form in LJFset %}
+         {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+            {% endfor %}
+        <!-- form.visible fields go here -->
+        {% if form.nudge.value > 0 %}
+
+         {% if form.score.value >= 102.0 and form.score.value < 110.0  %}
+         <b><p style="color:red">{{ form.status }} {{ form.job.value }} {{ form.nudge.value }}<img src="{% static 'orderpoll/images/star-emoji.png' %}" width="30" height="30"></p></b>
+         {% elif form.score.value >= 110.0 %}
+         <b><p style="color:red">{{ form.status }} {{ form.job.value }} {{ form.nudge.value }}<img src="{% static 'orderpoll/images/rainbow_star.png' %}" width="55" height="32"></p></b>
+         {% elif form.score.value <= 98.0 %}
+         <b><p style="color:red">{{ form.status }} {{ form.job.value }} {{ form.nudge.value }}<img src="{% static 'orderpoll/images/goomba-3.png' %}" width="40" height="40"></p></b>
+         {% else %}
+         <b><p style="color:red">{{ form.status }} {{ form.job.value }} {{ form.nudge.value }}</p></b>
+         {% endif %}
+
+       {% else %}
+
+       {% if form.score.value >= 102.0 and form.score.value < 110.0 %}
+       <p style="color:black">{{ form.status }} {{ form.job.value }}  <img src="{% static 'orderpoll/images/star-emoji.png' %}" width="30" height="30" style="vertical-align:middle"></p>
+       {% elif form.score.value >= 110.0 %}
+       <p style="color:black">{{ form.status }} {{ form.job.value }} <img src="{% static 'orderpoll/images/rainbow_star.png' %}" width="55" height="32"></p>
+       {% elif form.score.value <= 98.0 %}
+       <p style="color:black">{{ form.status }} {{ form.job.value }} <img src="{% static 'orderpoll/images/goomba-3.png' %}" width="40" height="40"></p>
+       {% else %}
+       <p style="color:black">{{ form.status }} {{ form.job.value }}</p>
+       {% endif %}
+
+       {% endif %}
+        {% endfor %}
+
+
+
+
+         <input type="submit" value="Complete">
+         <br><br><a href={% url "orderpoll:NudgePage" %}>Request job completion</a>
+     </form>
+
+
+     {% if LJ_over_status == True %}
+      <h5 style='color:#30d158'>Great work!</h5>
+     {% endif %}
+      <br><h3 style='color:#3a3a3c'>Lab Manager Links</h3>
+      <a href='/manageOrders/'><h4 style='color:#6c96eb'>Manage Orders</h4></a>
+      <a href='/admin/'><h4 style='color:#6c96eb'>Admin Page</h4></a>
+      <a href={% url 'orderpoll:userGenerator' %} ><h4 style='color:#6c96eb'>Generate a New User</h4></a>
+      <a href={% url 'orderpoll:orderhelper' %} ><h4 style='color:#6c96eb'>You may be in need of these items</h4></a><br>
+      <a href='/inventoryPage/'><h4 style='color:#6c96eb'>Inventory Page</h4></a>
+      <a href='/POs/'><h4 style='color:#6c96eb'>PO Numbers</h4></a>
+      <a href='/Box/'><h4 style='color:#6c96eb'>-80 Space</h4></a><br>
+
+
+      <a href='https://docs.google.com/spreadsheets/d/13fpn5mo7Rlf6PoZocmO7kLTuGKaXVgYdBZAf3hYUGoc/edit?usp=sharing' target="_blank"><h4 style='color:#6c96eb'>TC Sign Up</h4></a>
+      <a href='https://docs.google.com/spreadsheets/d/1Y18CjZ8kb4KDkodf_2_tvMgoPRLOTxUWYpD_U-1FCRU/edit?usp=sharing' target="_blank"><h4 style='color:#6c96eb'>Thermal Cycler Sign Up</h4></a>
+      <a href='https://docs.google.com/spreadsheets/d/1C05hygDyAU-kGNSSEWzJacV7ID4k6t5ttQNZKcCP4VM/edit?usp=sharing' target="_blank"><h4 style='color:#6c96eb'>Incubator Map</h4></a>
+
+
+      <h3 style='color:#3a3a3c'>External</h3>
+      <a href='https://peoplesoftfscm.nyumc.org/psp/fnprod/EMPLOYEE/ERP/c/PV_MAIN_MENU.PV_REQ_STATUS.GBL' target="_blank"><h4 style='color:#6c96eb'>NYU Manage Orders</h4></a>
+	    <a href='https://peoplesoftfscm.nyumc.org/psc/fnprod/EMPLOYEE/ERP/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL' target="_blank"><h4 style='color:#6c96eb'>NYU Ordering Page</h4></a>
+      <a href='https://central.nyumc.org/shared/site/foodservices/Pages/default.aspx' target="_blank"><h4 style='color:#6c96eb'>NYU Cafe Menus</h4></a>
+      <a href='https://www.airgas.com/dashboard' target="_blank"><h4 style='color:#6c96eb'>Airgas</h4></a>
+      <br>
+
+
+	<img src='\static\orderpoll\images\main_gif.gif' height="180" width="280" style=''>
+     {% else %}
+     <br>
+    <h3 style='color:#3a3a3c'>Lab Jobs</h3>
+<!--
+ <form method="post">
+     {% csrf_token %}
+     {% for x in labjobform %}
+     {% if x.label != "Labj4 status" and x.label != "Labj3 status" %}
+     <p>{{ x }} {{ x.label }}</p>
+     {% endif %}
+     {% endfor %}
+     <input type="submit" value="Submit">
+ </form>
+ -->
+ <form method="post">
+     {% csrf_token %}
+     {{ LJFset.management_form }}
+     {% for form in LJFset %}
+     {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+        {% endfor %}
+    <!-- form.visible fields go here -->
+    {% if form.nudge.value > 0 %}
+
+     {% if form.score.value >= 102.0 %}
+     <b><p style="color:red">{{ form.status }} {{ form.job.value }} {{ form.nudge.value }}<img src="{% static 'orderpoll/images/star-emoji.png' %}" width="30" height="30"></p></b>
+     {% elif form.score.value >= 110.0 %}
+     <b><p style="color:red">{{ form.status }} {{ form.job.value }} {{ form.nudge.value }}<img src="{% static 'orderpoll/images/rainbow_star.png' %}" width="55" height="32"></p></b>
+     {% elif form.score.value <= 98.0 %}
+     <b><p style="color:red">{{ form.status }} {{ form.job.value }} {{ form.nudge.value }}<img src="{% static 'orderpoll/images/goomba-3.png' %}" width="40" height="40"></p></b>
+     {% else %}
+     <b><p style="color:red">{{ form.status }} {{ form.job.value }} {{ form.nudge.value }}</p></b>
+     {% endif %}
+
+   {% else %}
+
+   {% if form.score.value >= 102.0 %}
+   <p style="color:black">{{ form.status }} {{ form.job.value }}  <img src="{% static 'orderpoll/images/star-emoji.png' %}" width="30" height="30" style="vertical-align:middle"></p>
+   {% elif form.score.value >= 110.0 %}
+   <p style="color:black">{{ form.status }} {{ form.job.value }} <img src="{% static 'orderpoll/images/rainbow_star.png' %}" width="55" height="32"></p>
+   {% elif form.score.value <= 98.0 %}
+   <p style="color:black">{{ form.status }} {{ form.job.value }} <img src="{% static 'orderpoll/images/goomba-3.png' %}" width="40" height="40"></p>
+   {% else %}
+   <p style="color:black">{{ form.status }} {{ form.job.value }}</p>
+   {% endif %}
+
+   {% endif %}
+    {% endfor %}
+
+
+
+
+     <input type="submit" value="Complete">
+     <br><br><a href={% url "orderpoll:NudgePage" %}>Request job completion</a>
+ </form>
+
+
+ {% if LJ_over_status == True %}
+  <h5 style='color:#30d158'>Great work!</h5>
+ {% endif %}
+      <br><h3 style='color:#3a3a3c'>Useful Links</h3>
+      <a href='https://docs.google.com/spreadsheets/d/13fpn5mo7Rlf6PoZocmO7kLTuGKaXVgYdBZAf3hYUGoc/edit?usp=sharing' target="_blank"><h4 style='color:#6c96eb'>TC Sign Up</h4></a>
+      <a href='https://docs.google.com/spreadsheets/d/1Y18CjZ8kb4KDkodf_2_tvMgoPRLOTxUWYpD_U-1FCRU/edit?usp=sharing' target="_blank"><h4 style='color:#6c96eb'>Thermal Cycler Sign Up</h4></a>
+      <a href='https://docs.google.com/spreadsheets/d/1C05hygDyAU-kGNSSEWzJacV7ID4k6t5ttQNZKcCP4VM/edit?usp=sharing' target="_blank"><h4 style='color:#6c96eb'>Incubator Map</h4></a>
+      <a href='/Box/'><h4 style='color:#6c96eb'>-80 Space</h4></a>
+      <a href='/POs/'><h4 style='color:#6c96eb'>PO Numbers</h4></a>
+      <a href='/inventoryPage/'><h4 style='color:#6c96eb'>Inventory Page</h4></a>
+      <a href='https://central.nyumc.org/shared/site/foodservices/Pages/default.aspx' target="_blank"><h4 style='color:#6c96eb'>NYU Cafe Menus</h4></a>
+
+
+	<img src='\static\orderpoll\images\main_gif.gif' height="180" width="280" style=''>
+      {% endif %}
+    </div>
+
+    <div class="col" style='text-align:left'>
+
+      <h1 style='color:#30d158'>Requested</h1>
+      {% for y in ordered %}
+      {% if y.order_ordered is False and y.order_received is False and y.order_notes %}
+      <div>
+    	<p style='color:#3a3a3c'><b>Item:</b> <a href = "/{{ y.pk }}/order_note/">{{ y.order_description }}</a><br>
+    	<b>Catalog #:</b> {{ y.order_code }}&nbsp;<b style='text-align:right'>   Category:</b> {{ y.order_category }}<br>
+    	<b>Quantity:</b> {{ y.order_quantity }}&nbsp;{{ y.order_units }}&nbsp;<b>   Owner:</b> {{ y.order_owner }} <br>
+    	<b>Request Date:</b> {{ y.request_date }}<br>
+      {% if y.order_owner == user.username or user.first_name in managers %}
+    	<a href="/{{ y.pk }}/edit"><i data-feather="tool"></i></a>&nbsp;
+      <a href="/{{ y.pk }}/delete" style="color:red; text-align:right"><i data-feather="trash-2"></i></a>&nbsp;
+      {% endif %}
+      {% if user.first_name in managers %}
+      <a href="/{{ y.pk }}/qordered" style="color:#64d3ff; text-align:right"><i data-feather="check-circle"></i></a></p>
+      {% endif %}
+
+      </div>
+      {% elif y.order_ordered is False and y.order_received is False %}
+	    <div>
+    	<p style='color:#3a3a3c'><b>Item:</b> {{ y.order_description }}<br>
+    	<b>Catalog #:</b> {{ y.order_code }}&nbsp;<b style='text-align:right'>   Category:</b> {{ y.order_category }}<br>
+    	<b>Quantity:</b> {{ y.order_quantity }}&nbsp;{{ y.order_units }}&nbsp;<b>   Owner:</b> {{ y.order_owner }} <br>
+    	<b>Request Date:</b> {{ y.request_date }}<br>
+      {% if y.order_owner == user.username or user.first_name in managers %}
+    	<a href="/{{ y.pk }}/edit"><i data-feather="tool"></i></a>&nbsp;
+      <a href="/{{ y.pk }}/delete" style="color:red; text-align:right"><i data-feather="trash-2"></i></a>&nbsp;
+      {% endif %}
+      {% if user.first_name in managers %}
+      <a href="/{{ y.pk }}/qordered" style="color:#64d3ff; text-align:right"><i data-feather="check-circle"></i></a></p>
+      {% endif %}
+    	</div>
+      {% endif %}
+      {% endfor %}
+
+    </div>
+
+    <div class='col'>
+      <h1 style='color:#64d3ff'>Ordered</h1>
+      {% for y in ordered  %}
+      {% if y.order_ordered is True and y.order_received is False %}
+      <div>
+      <p style='color:#3a3a3c'><b>Item:</b> {{ y.order_description }}<br>
+      <b>Catalog #:</b> {{ y.order_code }}&nbsp;<b style='text-align:right'>   Category:</b> {{ y.order_category }}<br>
+      <b>Quantity:</b> {{ y.order_quantity }}&nbsp;{{ y.order_units }}&nbsp;<b>   Owner:</b> {{ y.order_owner }} <br>
+      <b>Order Date:</b> {{ y.order_date }}<br> {% if y.order_backorder %}<b style="color:red">Backordered till:</b> {{ y.order_backorder }} {% else %} {% endif %}
+      {% if user.first_name in managers %}
+      <a href="/{{ y.pk }}/qreceived" style="color:#5e5ce6; text-align:right"><i data-feather="box"></i></a>
+      <a href="/{{ y.pk }}/unqordered" style="color:red; text-align:right"><i data-feather="chevrons-left"></i></a>
+      </p>
+      {% endif %}
+    </div>
+      {% endif %}
+      {% empty %}
+      <p>Nothing has been ordered recently</p>
+      {% endfor %}
+    </div>
+
+	  <div class='col'>
+  	  <h1 style='color:  #5e5ce6'>Received</h1>
+  		{% for y in ordered  %}
+      {% if y.order_received is True %}
+  	  <div>
+  	  <p style='color:#3a3a3c'><b>Item:</b> {{ y.order_description }}<br>
+  	  <b>Catalog #:</b> {{ y.order_code }}&nbsp;<b style='text-align:right'>   Category:</b> {{ y.order_category }}<br>
+  	  <b>Quantity:</b> {{ y.order_quantity }}&nbsp;{{ y.order_units }}&nbsp;<b>   Owner:</b> {{ y.order_owner }} <br>
+  	  <b>Receive Date:</b> {{ y.receive_date }}<br>
+      {% if user.first_name in managers %}
+      <a href="/{{ y.pk }}/unqreceived" style="color:red; text-align:right"><i data-feather="chevrons-left"></i></a>
+      {% endif %}
+    </p>
+	    </div>
+      {% endif %}
+      {% empty %}
+      <p style='color:#3a3a3c'>Nothing has been received recently</p>
+      {% endfor %}
+    </div>
+
+  </div>
+  <img src='\static\orderpoll\images\giphy2.gif' height="142" width="142" style='margin-left:110%'>
+</div>
+
+
+</body>
+
+<script>
+  feather.replace()
+</script>

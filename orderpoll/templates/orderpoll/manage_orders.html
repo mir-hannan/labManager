@@ -1,0 +1,29 @@
+{% extends 'orderpoll/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+{{ formset.media }}
+{{ formset.media.css }}
+<div style="display:flex; width:60%; justify-content:center">
+<form method='POST' class='uniForm'>
+
+	{% csrf_token %}
+  {{ formset.management_form }}
+  {% for form in formset %}
+
+	{% bootstrap_form form %}
+  {% render_field field style='border: 2px, dashed red;' %}
+  <hr style="height:5px; border:none; background-color:black">
+  
+  {% endfor %}
+  
+  {% bootstrap_button "Save" button_type="submit" button_class="btn-primary" %}
+
+</form>
+</div>
+{% endblock %}

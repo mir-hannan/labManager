@@ -1,0 +1,426 @@
+{% extends 'orderpoll/base.html' %}
+{% block head %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% endblock %}
+
+{% block content %}
+<body>
+
+<div>
+  <form method="post">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Submit">
+  </form>
+</div>
+
+<div class="container" style="width:60vw; height:80vw; background-color:grey; margins: 5% auto; position:relative">
+  <div class="row", style="width:95%; height:1%; background-color:grey; margin:2.5%; position:relative">
+
+  </div>
+  <div class="row", style="width:95%; height:18%; background-color:white; margin:2.5%; position:relative">
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A1a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A1b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A1c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A1d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A2a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A2b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A2c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A2d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A3a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A3b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A3c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A3d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A4a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A4b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A4c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A4d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A5a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A5b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A5c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "A5d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row", style="width:95%; height:18%; background-color:white; margin:2.5%; position:relative">
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B1a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B1b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B1c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B1d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B2a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B2b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B2c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B2d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B3a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B3b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B3c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B3d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B4a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B4b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B4c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B4d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B5a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B5b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B5c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "B5d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row", style="width:95%; height:18%; background-color:white; margin:2.5%; position:relative">
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C1a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C1b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C1c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C1d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C2a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C2b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C2c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C2d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C3a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C3b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C3c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C3d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C4a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C4b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C4c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C4d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C5a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C5b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C5c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "C5d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row", style="width:95%; height:18%; background-color:white; margin:2.5%; position:relative">
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D1a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D1b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D1c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D1d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D2a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D2b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D2c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D2d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D3a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D3b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D3c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D3d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D4a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D4b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D4c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D4d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+    <div class="col-sm" style="width:18%; height:95%; background-color:grey; margin:1%; padding:1%">
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D5a" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D5b" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D5c" style="display:flex; justify-content:space-around;"></div>
+      </div>
+      <div class="row" style="display:flex; justify-content:space-around;width:100%;height:23%;background-color:white; margin:1; padding:1%">
+        <div id= "D5d" style="display:flex; justify-content:space-around;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row", style="width:95%; height:15%; background-color:grey; margin:2.5%; position:relative">
+
+  </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<script>
+  feather.replace()
+
+
+
+
+
+  {% if usr == 'ahm421' %}
+  {% for k,v in allcols.items %}
+  {% for z,q in v %}
+  var parent = document.getElementById("{{ k }}");
+  var newdiv = document.createElement('div');
+  var newText = document.createElement('a');
+
+  newText.href = "{% url 'orderpoll:delete_box' z k %}";
+  newText.text = "{{ z }}";
+  newText.style.fontSize = "0.75vw";
+  newText.style.textDecoration = "underline";
+  newText.style.color = "white";
+  newText.style.display = "flex";
+  newText.style.justifyContent = "space-around";
+  newdiv.appendChild(newText)
+
+  newdiv.style.backgroundColor = "{{ q }}";
+  newdiv.style.borderColor = "black";
+  newdiv.style.borderStyle = "solid";
+  newdiv.style.borderWidth = '0.05em';
+  newdiv.style.height = '100%';
+  newdiv.style.width = '1.7vw';
+  newdiv.style.margin = '0.05vw';
+
+  parent.appendChild(newdiv)
+  {% endfor %}
+  {% endfor %}
+
+  {% else %}
+
+
+  {% for k,v in allcols.items %}
+  {% for z,q in v %}
+
+  {% if z == usr %}
+
+  var parent = document.getElementById("{{ k }}");
+  var newdiv = document.createElement('div');
+  var newText = document.createElement('a');
+
+  newText.href = "/{{ z }}/{{ k }}/delB";
+  newText.text = "{{ z }}";
+  newText.style.textDecoration = "underline";
+  newText.style.fontSize = "0.75vw";
+  newText.style.color = "white";
+  newText.style.display = "flex";
+  newText.style.justifyContent = "space-around";
+  newdiv.appendChild(newText);
+
+  newdiv.style.backgroundColor = "{{ q }}";
+  newdiv.style.borderColor = "black";
+  newdiv.style.borderStyle = "solid";
+  newdiv.style.borderWidth = '0.05em';
+  newdiv.style.height = '100%';
+  newdiv.style.width = '1.7vw';
+  newdiv.style.margin = '0.05vw';
+
+  parent.appendChild(newdiv);
+
+  {% else %}
+
+  var parent = document.getElementById("{{ k }}");
+  var newdiv = document.createElement('div');
+  var newText = document.createElement('h1');
+
+  newText.innerHTML = "{{ z }}";
+  newText.style.fontSize = "0.75em";
+  newText.style.color = "white";
+  newText.style.display = "flex";
+  newText.style.justifyContent = "space-around";
+  newdiv.appendChild(newText);
+
+  newdiv.style.backgroundColor = "{{ q }}";
+  newdiv.style.borderColor = "black";
+  newdiv.style.borderStyle = "solid";
+  newdiv.style.borderWidth = '0.05em';
+  newdiv.style.height = '100%';
+  newdiv.style.width = '1.7vw';
+  newdiv.style.margin = '0.05vw';
+
+  parent.appendChild(newdiv)
+  {% endif %}
+
+  {% endfor %}
+  {% endfor %}
+  {% endif %}
+
+</script>
+
+</body>
+{% endblock %}

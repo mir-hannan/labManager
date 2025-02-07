@@ -1,0 +1,51 @@
+{% extends 'orderpoll/base.html' %}
+{% block head %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% endblock %}
+
+{% block content %}
+{{ formset.media }}
+{{ form.media.css }}
+{{ formset.media.css }}
+
+<form method='POST'>
+  <div class="container" style="padding:2%">
+  <div class="row">
+  <div class="col">
+	{% csrf_token %}
+	{{ form.as_p }}
+<button type='submit'>Submit</button>
+</div>
+<div class="col">
+<h4>A note on ordering new items</h4>
+<p>All items unavailable through the NYU ordering system <b>require a quote</b> for ordering. The NYU ordering system includes: <br><br> Punchouts for: Fisher/ThermoFisher, Millipore Sigma, Staples, Henry Schein, and Grainger. <br><br> NYU also has an internal catalogue with items from: <br><br> Cell Signaling Technology, Qiagen, Santa Cruz, Proteintech, Agilent, Beckman, Bio-rad, Crystalgen, Fortis, New England Biolabs, Takara, USA Scientific, and Abcam.<br><br> I can usually request the quote but the turnaround time from the vendor can vary; it is typically less than a day, but can also take several days. This is only true for items we haven't ordered before, since we can reuse quotes. </p>
+</div>
+</div>
+</div>
+</form>
+
+
+
+
+
+
+{% if user.first_name in managers %}
+<br><br><br><h3>Admin Bulk Order Form</h3>
+<form method='POST'>
+	{% csrf_token %}
+	{{ formset.as_p }}
+	<button type='submit'>Submit</button>
+</form>
+
+{% endif %}
+
+{{ form.media.js }}
+{% endblock %}
+
+

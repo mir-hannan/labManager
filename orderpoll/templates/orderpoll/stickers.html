@@ -1,0 +1,33 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% load widget_tweaks %}
+{{ formset.media }}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="{% static 'orderpoll/style.css' %}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+{{ formset.media.css }}
+<div class="container" style='width:100%'>
+  <a href=/' style='position:right'><i data-feather="home"></i>Home</a>&nbsp;
+  <a href='/logout/' style='align-self:right'><i data-feather="log-out"></i>Logout</a>
+
+<p><b>Instructions:</b> Fill out as many empty tables as you need stickers. For drugs and other items, follow the table row headers. For plasmids, replace <i>'concentration'</i> with location, and <i>'name'</i> and <i>'solvent'</i> with the plasmid information. <b>If you do not use a field,</b> please insert an <b>'_'</b> there, otherwise there will be an <b>error.</b> Finally, press the submit button at the bottom of the page. Once submitted, feedback may take some time. Please <b>do not refresh</b> or go back to the previous page.</p>
+<form method='POST' class='uniForm'>
+
+	{% csrf_token %}
+  <table border='1'>
+	{{ formset.as_table }}
+  {% render_field field style='border: 2px, dashed red;' %}
+  </table>
+<button type='submit'>Submit</button>
+</form>
+
+</div>
+<script>
+  feather.replace()
+</script>

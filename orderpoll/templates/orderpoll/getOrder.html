@@ -1,0 +1,27 @@
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="{% static 'orderpoll/style.css' %}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+{{ form.media.css }}
+<div class="container">
+  <a href='/' style='position:right'><i data-feather="home"></i>Home</a>&nbsp;
+  <a href='/logout/' style='align-self:right'><i data-feather="log-out"></i>Logout</a>
+<form method='POST'>
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type='submit'>Submit</button>
+</form>
+<a href="/newItem">Not here? Add new item</a>
+{{ form.media.js }}
+</div>
+
+<script>
+  feather.replace()
+</script>
+{% block footer %}
+
+
+{% endblock %}

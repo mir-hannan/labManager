@@ -1,0 +1,28 @@
+{% extends 'orderpoll/base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-sm">
+      <h1 style="text-align:center"> Inventory </h1>
+      {% for y in inventory %}
+	<div>
+	<p><b>Item:</b> {{ y.item_description }}<br>
+  <b>Manufacturer:</b> {{ y.item_manufacturer }}<br>
+	<b>Catalog #:</b> {{ y.item_code }}<br>
+	<b>Category:</b> {{ y.item_category }}<br>
+	<b>Link:</b>{{ y.item_link }}<br>
+	<b>Item Statistics:</b> {{ y.item_stats }}<br>
+ 	<b>Quick Order Item:</b> {{ y.item_quick }}<br>
+	{% if user.first_name in managers %}
+	<a href="/{{ y.pk }}/editInven"><i data-feather="tool"></i></a>&nbsp;
+	{% endif %}
+	</p>
+	</div>
+      {% endfor %}
+   </div>
+  </div>
+{% endblock %}

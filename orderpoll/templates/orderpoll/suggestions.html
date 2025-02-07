@@ -1,0 +1,57 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load sort_template %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="{% static 'orderpoll/style.css' %}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169849014-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169849014-1');
+</script>
+
+<div class="container" style='width:100%; background-color:white'>
+  <a href='/' style='position:right;color:#6c96eb'><i data-feather="home"></i>Home</a>&nbsp;
+  <a href='/logout' style='align-self:right;color:#6c96eb'><i data-feather="log-out"></i>Logout</a>
+  <br>
+
+
+
+
+    <div>
+
+      <h1 style='color:#30d158'>Suggestions</h1><br>
+      {% for y in suggested_orders %}
+      <div class="col-md-8">
+    	<p style='color:#3a3a3c'><b>Item:</b>{{ y.order_description }}<br>
+    	<b>Catalog #:</b> {{ y.order_code }}&nbsp;<b style='text-align:right'>   Category:</b> {{ y.order_category }}<br>
+    	<b>Quantity:</b> {{ y.order_quantity }}&nbsp;{{ y.order_units }}&nbsp;<b>   Owner:</b> {{ y.order_owner }} <br>
+    	<b>Request Date:</b> {{ y.request_date }}<br>
+    	<a href="/{{ y.pk }}/edit"><i data-feather="tool"></i></a>&nbsp;
+      <a href="/{{ y.pk }}/delete" style="color:red; text-align:right"><i data-feather="trash-2"></i></a>
+      <a href="/snooze/{{ y.pk }}/{{ y.order_code }}/7">Snooze 1 Week</a>&nbsp;|
+      <a href="/snooze/{{ y.pk }}/{{ y.order_code }}/30"> 1 Month</a> |
+      <a href="/snooze/{{ y.pk }}/{{ y.order_code }}/365"> 1 Year</a> |
+      <a href="/{{ y.pk }}/accept"> Accept </a>  </p>
+      </div>
+
+
+
+      {% endfor %}
+      </div>
+
+    </div>
+
+
+</body>
+
+<script>
+  feather.replace()
+</script>

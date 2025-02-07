@@ -1,0 +1,50 @@
+{% extends 'orderpoll/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-sm">
+      <h1 style="text-align:center"> Order History </h1>
+  <div>
+
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Item</th>
+        <th scope="col">Catalogue #</th>
+        <th scope='col'>Category</th>
+        <th scope='col'>Owner</th>
+        <th scope='col'>Quantity</th>
+        <th scope='col'>Request Date</th>
+        <th scope='col'>Order Date</th>
+        <th scope='col'>Receipt Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for y in order_list %}
+        <tr>
+
+          <td>{{ y.order_description }}</td>
+          <td>{{ y.order_code }}</td>
+          <td>{{ y.order_category }}</td>
+          <td>{{ y.order_owner }}</td>
+          <td>{{ y.order_quantity }}&nbsp;{{ y.order_units }}</td>
+          <td>{{ y.request_date }}</td>
+          <td>{{ y.order_date }}</td>
+          <td>{{ y.receive_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+  </table>
+   </div>
+  </div>
+</div>
+{% endblock %}
+
